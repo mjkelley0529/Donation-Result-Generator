@@ -60,7 +60,6 @@ public class GameChooser extends JFrame implements ActionListener, KeyListener {
     public void actionPerformed(ActionEvent e) {
         for(int i=0;i<b.length;i++) {
             if (e.getSource() == b[i]) {
-
                 //new DonationInputWindow(GAMELIST[i]);
             }
         }
