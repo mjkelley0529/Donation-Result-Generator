@@ -22,7 +22,7 @@ public class GameChooser extends JFrame implements ActionListener, KeyListener {
             "#7000AF"
     };
     //UI Variables
-    private JButton b[]=new JButton[GAMELIST.length];
+    private JButton[] b = new JButton[GAMELIST.length];
     private GridLayout frameLay=new GridLayout((int)Math.ceil(GAMELIST.length/2.0),(int)Math.ceil(GAMELIST.length/2.0),5,5);
     private Font font=new Font("Arial", Font.BOLD, 24);
 
@@ -60,6 +60,7 @@ public class GameChooser extends JFrame implements ActionListener, KeyListener {
     public void actionPerformed(ActionEvent e) {
         for(int i=0;i<b.length;i++) {
             if (e.getSource() == b[i]) {
+
                 //new DonationInputWindow(GAMELIST[i]);
             }
         }
