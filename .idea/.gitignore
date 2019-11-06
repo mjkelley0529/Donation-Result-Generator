@@ -1,5 +1,3 @@
 # Default ignored files
 /workspace.xml
-/out
-*.class
-/.idea
+Donation Result Generator/out/*
