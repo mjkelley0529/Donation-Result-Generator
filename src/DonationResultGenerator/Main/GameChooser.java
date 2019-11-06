@@ -1,5 +1,7 @@
 package DonationResultGenerator.Main;
 
+import DonationResultGenerator.Resources.GlobalVariables;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,16 +13,9 @@ public class GameChooser extends JFrame implements ActionListener, KeyListener {
     //Static Final Variables
     private static final String TITLE="Donation Result Generator";
     private static final String VERID="0.1";
-    private static final String[] GAMELIST = {
-            "Overwatch",
-            "Minecraft",
-            "Kerbal Space Program"
-    };
-    private static final String[] COLORSTRING = {
-            "#FFFFFF",
-            "#00FF00",
-            "#7000AF"
-    };
+    private static final String[] GAMELIST = GlobalVariables.GAMELIST;
+
+    private static final Color[] colors = new Color[3];
     //UI Variables
     private JButton[] b = new JButton[GAMELIST.length];
     private GridLayout frameLay=new GridLayout((int)Math.ceil(GAMELIST.length/2.0),(int)Math.ceil(GAMELIST.length/2.0),5,5);
@@ -33,14 +28,19 @@ public class GameChooser extends JFrame implements ActionListener, KeyListener {
         setSize(w, h);
         setResizable(false);
         setLayout(frameLay);
+
+        colors[0] = GlobalVariables.G;
+        colors[1] = GlobalVariables.P;
+        colors[2] = GlobalVariables.W;
+
         for(int i=0;i<b.length;i++) {
             b[i] = new JButton(GAMELIST[i]);
             b[i].addActionListener(this);
             b[i].addKeyListener(this);
             b[i].setFocusable(false);
             b[i].setFont(font);
-            b[i].setBackground(Color.BLACK);
-            b[i].setForeground(Color.decode(COLORSTRING[i]));
+            b[i].setBackground(GlobalVariables.B);
+            b[i].setForeground(colors[i]);
             add(b[i]);
         }
         setAutoRequestFocus(true);

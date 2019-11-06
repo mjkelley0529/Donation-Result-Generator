@@ -9,16 +9,15 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Random;
-import java.util.Scanner;
 
 public class DonationInputWindow extends JFrame implements ActionListener, KeyListener {
     //Final Variables
     private static final String TITLE="Donation Consequences";
     private static final String VERID="1.0";
     //Functional Variables
-    private JPanel pane=new JPanel(),
-            spacer[]=new JPanel[2],
-            containerPane[]=new JPanel[2];
+    private JPanel pane = new JPanel();
+    private JPanel[] spacer = new JPanel[2];
+    private JPanel[] containerPane = new JPanel[2];
     private JTextField display=new JTextField("Donation Amount: "),
             input=new JTextField();
     private JButton b=new JButton("OK");
@@ -30,9 +29,11 @@ public class DonationInputWindow extends JFrame implements ActionListener, KeyLi
             G=GlobalVariables.G,
             P=GlobalVariables.P,
             W=GlobalVariables.W;
+    private String gameString = "";
 
     //Constructor
     public DonationInputWindow(String gameString) {
+        this.gameString = gameString;
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
@@ -87,7 +88,8 @@ public class DonationInputWindow extends JFrame implements ActionListener, KeyLi
 
         setVisible(true);
     }//DonationInputWindow
-    private void runLogic() {
+
+    private ResultWindow runMinecraftLogic() {
         //Variables
         final String[][] OUTCOMMANDS = new String[3][10];
         //Bad Commands
@@ -136,7 +138,7 @@ public class DonationInputWindow extends JFrame implements ActionListener, KeyLi
         } catch(Exception e) {
             dA=1;
         }
-        int out[] = {0, 0};
+        int[] out = {0, 0};
         Random random = new Random();
         //Logic
         int i=1, randInt=0;
@@ -201,8 +203,16 @@ public class DonationInputWindow extends JFrame implements ActionListener, KeyLi
             out[1]=0;
         }
         //ShowResults
-        new ResultWindow("Exeecute this command:", OUTCOMMANDS[out[0]][out[1]], this);
-    }//runLogic
+        return new ResultWindow("Execute this command:", OUTCOMMANDS[out[0]][out[1]], this, true);
+    }//runMinecraftLogic
+
+    private ResultWindow runOverwatchLogic() {
+        return new ResultWindow(this);
+    }//runOverwatchLogic
+
+    private ResultWindow runKSPLogic() {
+        return new ResultWindow(this);
+    }//runKSPLogic
     //Utility Methods
     private <T> void print(T printString) {
         System.out.println(printString);
@@ -212,9 +222,27 @@ public class DonationInputWindow extends JFrame implements ActionListener, KeyLi
     }//getTitle
     //Inherited Methods
     @Override
-    public void actionPerformed(ActionEvent e) {
-        if(e.getSource()==b) {
-            runLogic();
+    public void actionPerformed(ActionEvent evt) {
+        if (evt.getSource() == b) {
+            ResultWindow rw = null;
+            switch (gameString) {
+                case "Minecraft":
+                    rw = runMinecraftLogic();
+                    break;
+                case "Overwatch":
+                    rw = runOverwatchLogic();
+                    break;
+                case "Kerbal Space Program":
+                    rw = runKSPLogic();
+                    break;
+                default:
+                    break;
+            }
+            try {
+                rw.reveal();
+            } catch (NullPointerException e) {
+                e.printStackTrace();
+            }
             input.setText("");
         }
     }//actionPerformed
