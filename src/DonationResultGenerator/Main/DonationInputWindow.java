@@ -94,46 +94,20 @@ public class DonationInputWindow extends JFrame implements ActionListener, KeyLi
     }//DonationInputWindow
     //Game Logics
     private ResultWindow runMinecraftLogic() throws FileNotFoundException {
-        //Variables
+        //Variable Declaration
         String[][] outCommands = readFile("CommandList.txt");
-        print(outCommands.length);
-        double dA=1;
+        double dA;
         try {
             dA=Double.parseDouble(input.getText());
         } catch(Exception e) {
-            dA=1;
+            dA=10;
         }
         int[] out = {0, 0};
         Random random = new Random();
         //Logic
-        int randInt=random.nextInt((int)dA);
-        if(randInt<=2) {
-            out[0]=1;
-        } else {
-            out[0]=0;
-        }
-        randInt=random.nextInt(100)+1;
-        if (randInt <= 40) {
-            out[1] = 0;
-        } else if(randInt<=60) {
-            out[1]=1;
-        } else if(randInt<=70) {
-            out[1]=2;
-        } else if(randInt<=80) {
-            out[1]=3;
-        } else if(randInt<=90) {
-            out[1]=4;
-        } else if(randInt<=93) {
-            out[1]=5;
-        } else if(randInt<=96) {
-            out[1]=6;
-        } else if(randInt==97) {
-            out[1]=7;
-        } else if(randInt==98) {
-            out[1]=8;
-        } else if(randInt>=99) {
-            out[1] = 9;
-        }
+        int randInt=random.nextInt((int)Math.ceil(dA));
+        double outFactor=Math.log(Math.pow(randInt-1, dA))/Math.log(3);
+        print(randInt+" "+outFactor);
         //Special Cases
         if(dA==69) {
             out[0]=2;
@@ -201,6 +175,7 @@ public class DonationInputWindow extends JFrame implements ActionListener, KeyLi
             try {
                 switch (gameString) {
                     case "Minecraft":
+                        for(int i=0;i<100;i++)
                         rw = runMinecraftLogic();
                         break;
                     case "Overwatch":
@@ -215,9 +190,9 @@ public class DonationInputWindow extends JFrame implements ActionListener, KeyLi
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
-            if(rw!=null) {
+            /*if(rw!=null) {
                 rw.reveal();
-            }
+            }*/
             input.setText("");
         }
     }//actionPerformed

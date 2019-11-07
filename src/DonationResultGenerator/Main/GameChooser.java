@@ -28,6 +28,7 @@ public class GameChooser extends JFrame implements ActionListener, KeyListener {
         setSize(w, h);
         setResizable(false);
         setLayout(frameLay);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         colors[0] = GlobalVariables.G;
         colors[1] = GlobalVariables.P;
