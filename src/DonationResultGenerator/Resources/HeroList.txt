@@ -1,0 +1,35 @@
+3
+<Tank> %8
+    D.Va
+    Orisa
+    Reinhardt
+    Roadhog
+    Sigma
+    Winston
+    Wrecking Ball
+    Zarya
+<DPS> %16
+    Ashe
+    Bastion
+    Doomfist
+    Genji
+    Hanzo
+    Junkrat
+    McCree
+    Mei
+    Pharah
+    Reaper
+    Soldier: 76
+    Sombra
+    Symmetra
+    Torbjorn
+    Tracer
+    Widowmaker
+<Support> %7
+    Ana
+    Baptiste
+    Brigitte
+    Lucio
+    Mercy
+    Moira
+    Zenyatta
