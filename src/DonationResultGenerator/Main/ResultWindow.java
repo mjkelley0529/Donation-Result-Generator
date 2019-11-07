@@ -37,7 +37,6 @@ public class ResultWindow extends JFrame implements ActionListener {
         output.setBackground(GlobalVariables.B);
         output.setForeground(GlobalVariables.W);
     }//ResultWindow Default
-
     ResultWindow(String displayString, String outString, Frame parentFrame) {
         makeFrame(parentFrame);
         display = new JTextField(displayString);
@@ -55,7 +54,6 @@ public class ResultWindow extends JFrame implements ActionListener {
         output.setForeground(GlobalVariables.W);
         add(output);
     }//ResultWindow Full w/o Button
-
     ResultWindow(String displayString, String outString, Frame parentFrame, boolean outB) {
         makeFrame(parentFrame);
         display = new JTextField(displayString);
@@ -83,7 +81,6 @@ public class ResultWindow extends JFrame implements ActionListener {
             add(output);
         }
     }//ResultWindow Full w/ Button
-
     private void makeFrame(Frame parentFrame) {
         setTitle(TITLE);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -93,7 +90,6 @@ public class ResultWindow extends JFrame implements ActionListener {
         setLayout(new GridLayout(1, 2, 5, 5));
         setBackground(GlobalVariables.B);
     }
-
     //Inherited Methods
     @Override
     public void actionPerformed(ActionEvent evt) {
@@ -103,35 +99,28 @@ public class ResultWindow extends JFrame implements ActionListener {
             dispose();
         }
     }
-
     //Accessors
     public String getDisplayString() {
         return display.getText();
     }//getDisplayString
-
     //Mutators
     public void setDisplayString(String displayString) {
         display.setText(displayString);
     }//setDisplayString
-
     public String getOutputString() {
         return output.getText();
     }//getOutputString
-
     public void setOutputString(String outString) {
         this.outString = outString;
         if (!outB)
             output.setText(outString);
     }//setOutput
-
     public void reveal() {
         setVisible(true);
     }
-
     public void conceal() {
         setVisible(false);
     }
-
     public void refresh() {
         conceal();
         repaint();

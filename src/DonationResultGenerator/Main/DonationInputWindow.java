@@ -88,7 +88,7 @@ public class DonationInputWindow extends JFrame implements ActionListener, KeyLi
 
         setVisible(true);
     }//DonationInputWindow
-
+    //Game Logics
     private ResultWindow runMinecraftLogic() {
         //Variables
         final String[][] OUTCOMMANDS = new String[3][10];
@@ -205,11 +205,9 @@ public class DonationInputWindow extends JFrame implements ActionListener, KeyLi
         //ShowResults
         return new ResultWindow("Execute this command:", OUTCOMMANDS[out[0]][out[1]], this, true);
     }//runMinecraftLogic
-
     private ResultWindow runOverwatchLogic() {
         return new ResultWindow(this);
     }//runOverwatchLogic
-
     private ResultWindow runKSPLogic() {
         return new ResultWindow(this);
     }//runKSPLogic
