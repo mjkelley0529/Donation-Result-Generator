@@ -100,19 +100,27 @@ public class DonationInputWindow extends JFrame implements ActionListener, KeyLi
         try {
             dA=Double.parseDouble(input.getText());
         } catch(Exception e) {
-            dA=10;
+            dA=1;
         }
         int[] out = {0, 0};
         Random random = new Random();
-        //Logic
-        int randInt=random.nextInt((int)Math.ceil(dA));
-        double outFactor=Math.log(Math.pow(randInt-1, dA))/Math.log(3);
-        print(randInt+" "+outFactor);
         //Special Cases
         if(dA==69) {
             out[0]=2;
             out[1]=0;
+            return new ResultWindow("Execute this command:", outCommands[out[0]][out[1]], this, true);
         }
+        //Logic
+        double outFactor=(dA/(dA+1))+(dA/5);
+        int randInt=random.nextInt((int)Math.round(outFactor+1));
+        switch (randInt) {
+            case 0:
+                out[0]=0;
+                break;
+            default:
+                out[0]=1;
+        }
+        print(dA+" "+randInt+" "+outFactor+" "+out[0]);
         //ShowResults
         return new ResultWindow("Execute this command:", outCommands[out[0]][out[1]], this, true);
     }//runMinecraftLogic
@@ -175,7 +183,6 @@ public class DonationInputWindow extends JFrame implements ActionListener, KeyLi
             try {
                 switch (gameString) {
                     case "Minecraft":
-                        for(int i=0;i<100;i++)
                         rw = runMinecraftLogic();
                         break;
                     case "Overwatch":
@@ -190,9 +197,9 @@ public class DonationInputWindow extends JFrame implements ActionListener, KeyLi
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
-            /*if(rw!=null) {
+            if(rw!=null) {
                 rw.reveal();
-            }*/
+            }
             input.setText("");
         }
     }//actionPerformed

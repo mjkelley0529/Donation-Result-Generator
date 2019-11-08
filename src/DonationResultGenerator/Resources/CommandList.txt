@@ -1,8 +1,10 @@
 3
+<Good_Commands> %1
+    /command
 <Bad_Commands> %4
     /effect give @s slowness 20 1 true"
     /effect give @s blindness 20 1 true"
     /effect give @s poison 5 2 true"
     /kill @p
-<Good_Commands> %0
-<Special_Commands> %0
+<Special_Commands> %1
+    /give @s diamond_block 64
