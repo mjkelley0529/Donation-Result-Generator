@@ -1,10 +1,12 @@
 3
 <Good_Commands> %1
     /command
-<Bad_Commands> %4
+<Bad_Commands> %
+    /give @s dirt 64
     /effect give @s slowness 20 1 true"
     /effect give @s blindness 20 1 true"
     /effect give @s poison 5 2 true"
+    /summon enderman ~ ~1 ~ {Passengers:[{id:skeleton,HandItems:[{Count:1,id:bow,tag:{Enchantments:[{id:power,lvl:4}]}},{}],ArmorItems:[{},{},{},{Count:1,id:dragon_head}],CustomName:"\"Oh God Help.\"",HandDropChances:[0.1f,0.0f]}]}
     /kill @p
 <Special_Commands> %1
     /give @s diamond_block 64

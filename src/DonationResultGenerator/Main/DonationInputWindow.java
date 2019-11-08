@@ -34,6 +34,11 @@ public class DonationInputWindow extends JFrame implements ActionListener, KeyLi
             P=GlobalVariables.P,
             W=GlobalVariables.W;
     private String gameString = "";
+    String[][] outCommands;
+    double dA;
+    double outFactor;
+    int[] out = {0, 0};
+    Random random = new Random();
 
     //Constructor
     public DonationInputWindow(String gameString) {
@@ -95,15 +100,7 @@ public class DonationInputWindow extends JFrame implements ActionListener, KeyLi
     //Game Logics
     private ResultWindow runMinecraftLogic() throws FileNotFoundException {
         //Variable Declaration
-        String[][] outCommands = readFile("CommandList.txt");
-        double dA;
-        try {
-            dA=Double.parseDouble(input.getText());
-        } catch(Exception e) {
-            dA=1;
-        }
-        int[] out = {0, 0};
-        Random random = new Random();
+        outCommands = readFile("CommandList.txt");
         //Special Cases
         if(dA==69) {
             out[0]=2;
@@ -111,7 +108,6 @@ public class DonationInputWindow extends JFrame implements ActionListener, KeyLi
             return new ResultWindow("Execute this command:", outCommands[out[0]][out[1]], this, true);
         }
         //Logic
-        double outFactor=(dA/(dA+1))+(dA/5);
         int randInt=random.nextInt((int)Math.round(outFactor+1));
         switch (randInt) {
             case 0:
@@ -123,13 +119,23 @@ public class DonationInputWindow extends JFrame implements ActionListener, KeyLi
         print(new double[]{dA,randInt,outFactor,out[0]});
 
         int cLL=outCommands[out[0]].length;
-        int initPick=random.nextInt(cLL), moneyPick=random.nextInt((int)Math.round(dA));
+        outFactor=outFactor*dA;
+        if(outFactor>cLL){
+            outFactor=cLL;
+        }
+        randInt=random.nextInt((int)Math.round(outFactor));
+        out[1]=randInt;
         //ShowResults
         return new ResultWindow("Execute this command:", outCommands[out[0]][out[1]], this, true);
     }//runMinecraftLogic
     private ResultWindow runOverwatchLogic() throws FileNotFoundException {
-        String[][] HeroList=readFile("HeroList.txt");
-        return new ResultWindow(this);
+        //Variable Declaration
+        outCommands = readFile("HeroList.txt");
+        //Logic
+        out[0]=random.nextInt(outCommands.length);
+        //TODO Hero choice weighted with outFactor.
+        //Show Results
+        return new ResultWindow("Use this Hero: ", outCommands[out[0]][out[1]],this);
     }//runOverwatchLogic
     private ResultWindow runKSPLogic() {
         return new ResultWindow(this);
@@ -190,6 +196,12 @@ public class DonationInputWindow extends JFrame implements ActionListener, KeyLi
     public void actionPerformed(ActionEvent evt) {
         if (evt.getSource() == b) {
             ResultWindow rw = null;
+            try {
+                dA=Double.parseDouble(input.getText());
+            } catch(Exception e) {
+                dA=1;
+            }
+            outFactor=(dA/(dA+1))+(dA/5);
             try {
                 switch (gameString) {
                     case "Minecraft":
