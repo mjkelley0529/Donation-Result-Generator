@@ -120,7 +120,10 @@ public class DonationInputWindow extends JFrame implements ActionListener, KeyLi
             default:
                 out[0]=1;
         }
-        print(dA+" "+randInt+" "+outFactor+" "+out[0]);
+        print(new double[]{dA,randInt,outFactor,out[0]});
+
+        int cLL=outCommands[out[0]].length;
+        int initPick=random.nextInt(cLL), moneyPick=random.nextInt((int)Math.round(dA));
         //ShowResults
         return new ResultWindow("Execute this command:", outCommands[out[0]][out[1]], this, true);
     }//runMinecraftLogic
@@ -171,6 +174,13 @@ public class DonationInputWindow extends JFrame implements ActionListener, KeyLi
                 print(printStrings[i][a]+" "+i+" "+a);
             }
         }
+    }
+    private void print(double[] inStrings) {
+        String outString="";
+        for(int i=0;i<inStrings.length;i++) {
+            outString+=inStrings[i]+" ";
+        }
+        print(outString);
     }
     public static String getJTitle() {
         return TITLE+" "+VERID;
