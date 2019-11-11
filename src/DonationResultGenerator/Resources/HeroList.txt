@@ -1,35 +1,35 @@
 3
 <Tank> %8
-    D.Va
+    Sigma
+    Wrecking Ball
     Orisa
+    Winston
+    Zarya
+    D.Va
     Reinhardt
     Roadhog
-    Sigma
-    Winston
-    Wrecking Ball
-    Zarya
 <DPS> %16
-    Ashe
+    Mei
+    Junkrat
     Bastion
     Doomfist
-    Genji
-    Hanzo
-    Junkrat
-    McCree
-    Mei
-    Pharah
     Reaper
     Soldier: 76
-    Sombra
+    Pharah
+    Tracer
     Symmetra
     Torbjorn
-    Tracer
+    Genji
+    McCree
+    Ashe
     Widowmaker
+    Hanzo
+    Sombra
 <Support> %7
-    Ana
-    Baptiste
-    Brigitte
-    Lucio
-    Mercy
     Moira
+    Lucio
+    Ana
     Zenyatta
+    Baptiste
+    Mercy
+    Brigitte

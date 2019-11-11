@@ -103,9 +103,7 @@ public class DonationInputWindow extends JFrame implements ActionListener, KeyLi
         outCommands = readFile("CommandList.txt");
         //Special Cases
         if(dA==69) {
-            out[0]=2;
-            out[1]=0;
-            return new ResultWindow("Execute this command:", outCommands[out[0]][out[1]], this, true);
+            return new ResultWindow("Execute this command:", outCommands[2][0], this, true);
         }
         //Logic
         int randInt=random.nextInt((int)Math.round(outFactor+1));
@@ -116,15 +114,7 @@ public class DonationInputWindow extends JFrame implements ActionListener, KeyLi
             default:
                 out[0]=1;
         }
-        print(new double[]{dA,randInt,outFactor,out[0]});
-
-        int cLL=outCommands[out[0]].length;
-        outFactor=outFactor*dA;
-        if(outFactor>cLL){
-            outFactor=cLL;
-        }
-        randInt=random.nextInt((int)Math.round(outFactor));
-        out[1]=randInt;
+        out[1]=out(out[0]);
         //ShowResults
         return new ResultWindow("Execute this command:", outCommands[out[0]][out[1]], this, true);
     }//runMinecraftLogic
@@ -132,8 +122,19 @@ public class DonationInputWindow extends JFrame implements ActionListener, KeyLi
         //Variable Declaration
         outCommands = readFile("HeroList.txt");
         //Logic
-        out[0]=random.nextInt(outCommands.length);
-        //TODO Hero choice weighted with outFactor.
+        switch(random.nextInt((int)Math.round(outFactor))) {
+            case 0:
+                out[0]=0;
+                break;
+            case 1:
+                out[0]=1;
+                break;
+            default:
+                out[0]=2;
+        }
+        print(outFactor);
+        out[1]=out(out[0]);
+        print(outFactor, true);
         //Show Results
         return new ResultWindow("Use this Hero: ", outCommands[out[0]][out[1]],this);
     }//runOverwatchLogic
@@ -162,6 +163,15 @@ public class DonationInputWindow extends JFrame implements ActionListener, KeyLi
             }
         }
         return outStrings;
+    }
+    public int out(int commandList) {
+        int cLL=outCommands[commandList].length;
+        outFactor=outFactor*dA;
+        if(outFactor>cLL){
+            outFactor=cLL;
+        }
+        int randInt=random.nextInt((int)Math.round(outFactor));
+        return randInt;
     }
     //Utility Methods
     private <T> void print(T printString) {
