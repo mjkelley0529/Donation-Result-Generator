@@ -1,12 +1,29 @@
 3
-<Good_Commands> %1
-    /command
-<Bad_Commands> %
-    /give @s dirt 64
-    /effect give @s slowness 20 1 true"
-    /effect give @s blindness 20 1 true"
-    /effect give @s poison 5 2 true"
-    /summon enderman ~ ~1 ~ {Passengers:[{id:skeleton,HandItems:[{Count:1,id:bow,tag:{Enchantments:[{id:power,lvl:4}]}},{}],ArmorItems:[{},{},{},{Count:1,id:dragon_head}],CustomName:"\"Oh God Help.\"",HandDropChances:[0.1f,0.0f]}]}
+<Good_Commands> %13
+    /effect give @s haste 60 2
+    /give @s coal_ore{display:{Name:"\"Common Donator Ore\"",Lore:["\"Pretty \\\"meh\\\" honestly.\""]}} 16
+    /give @s iron_ore{display:{Name:"\"Uncommon Donator Ore\"",Lore:["\"Okay, but farmable?\""]}} 8
+    /give @s gold_ore{display:{Name:"\"Uncommon Donator Ore\"",Lore:["\"Okay, but farmable?\""]}} 8
+    /give @s lapis_ore{display:{Name:"\"Rare Donator Ore\"",Lore:["\"Pretty good. Not gonna lie.\""]}} 4
+    /give @s redstone_ore{display:{Name:"\"Rare Donator Ore\"",Lore:["\"Pretty good. Not gonna lie.\""]}} 4
+    /give @s nether_quartz_ore{display:{Name:"\"Rare Donator Ore\"",Lore:["\"Pretty good. Not gonna lie.\""]}} 4
+    /give @s diamond_ore{display:{Name:"\"Mythic Donator Ore\"",Lore:["\"Ight. That's pretty legit.\""]}} 2
+    /give @s emerald_ore{display:{Name:"\"Mythic Donator Ore\"",Lore:["\"Ight. That's pretty legit.\""]}} 2
+    /give @s enchanted_book(StoredEnchantments:[{id:silk_touch,lvl:1}]} 1
+    /give @s enchanted_book(StoredEnchantments:[{id:unbreaking,lvl:3}]} 1
+    /give @s enchanted_book{StoredEnchantments:[{id:mending,lvl:1}]} 1
+    /give @s enchanted_book{StoredEnchantments:[{id:looting,lvl:5},{id:fortune,lvl:5}]} 1
+<Bad_Commands> %10
+    /give @s chest{BlockEntityTag:{Items:[{Slot:13,id:dead_bush,Count:64}]}} 1
+    /effect give @s slowness 20 1 true
+    /effect give @s blindness 20 1 true
+    /effect give @s nausea 10 1 true
+    /setblock ~ ~ ~ wither_rose replace
+    /summon vindicator ~ ~ ~
+    /summon ravager ~ ~ ~ {Passengers:[{id:pillager}]}
+    /summon enderman ~ ~ ~ {Passengers:[{id:skeleton,HandItems:[{Count:1,id:bow,tag:{Enchantments:[{id:power,lvl:4}]}},{}],ArmorItems:[{},{},{},{Count:1,id:dragon_head}],CustomName:"\"Oh God Help.\"",HandDropChances:[0.1f,0.0f]}]}
     /kill @p
-<Special_Commands> %1
+    /effect give @s bad_omen 60 0 true
+<Special_Commands> %2
     /give @s diamond_block 64
+    /give @s enchanted_book{StoredEnchantments:[{id:sharpness,lvl:10},{id:looting,lvl:10},{id:sweeping,lvl:10},{id:efficiency,lvl:10},{id:unbreaking,lvl:10},{id:fortune,lvl:10},{id:power,lvl:10},{id:mending,lvl:1}]} 1

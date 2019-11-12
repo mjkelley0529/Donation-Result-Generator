@@ -100,43 +100,55 @@ public class DonationInputWindow extends JFrame implements ActionListener, KeyLi
     //Game Logics
     private ResultWindow runMinecraftLogic() throws FileNotFoundException {
         //Variable Declaration
+        String displayString="Execute this command:";
         outCommands = readFile("CommandList.txt");
-        //Special Cases
-        if(dA==69) {
-            return new ResultWindow("Execute this command:", outCommands[2][0], this, true);
-        }
         //Logic
-        int randInt=random.nextInt((int)Math.round(outFactor+1));
-        switch (randInt) {
-            case 0:
-                out[0]=0;
-                break;
-            default:
-                out[0]=1;
+        if(dA==42) { //Special Case 1
+            out[0]=2;
+            out[1]=0;
+            displayString="You're gonna have fun with this one.";
+        } else if(dA==69) { //Special Case 2
+            out[0]=2;
+            out[1]=1;
+            displayString="Why would someone actually do this?";
+        } else { //Default Logic
+            int randInt = random.nextInt((int) Math.round(outFactor + 1));
+            switch (randInt) {
+                case 0:
+                    out[0] = 0;
+                    break;
+                default:
+                    out[0] = 1;
+            }
+            out[1] = out(out[0]);
         }
-        out[1]=out(out[0]);
         //ShowResults
-        return new ResultWindow("Execute this command:", outCommands[out[0]][out[1]], this, true);
+        return new ResultWindow(displayString, outCommands[out[0]][out[1]], this, true);
     }//runMinecraftLogic
     private ResultWindow runOverwatchLogic() throws FileNotFoundException {
         //Variable Declaration
+        String displayString="Use this Hero:";
         outCommands = readFile("HeroList.txt");
         //Logic
-        switch(random.nextInt((int)Math.round(outFactor))) {
-            case 0:
-                out[0]=0;
-                break;
-            case 1:
-                out[0]=1;
-                break;
-            default:
-                out[0]=2;
+        if(dA==76) { //Special Cases
+            out[0]=1;
+            out[1]=5;
+            displayString="But... Why? Use this one I guess.";
+        } else { // Default Logic
+            switch (random.nextInt((int) Math.round(outFactor))) {
+                case 0:
+                    out[0] = 0;
+                    break;
+                case 1:
+                    out[0] = 1;
+                    break;
+                default:
+                    out[0] = 2;
+            }
+            out[1] = out(out[0]);
         }
-        print(outFactor);
-        out[1]=out(out[0]);
-        print(outFactor, true);
         //Show Results
-        return new ResultWindow("Use this Hero: ", outCommands[out[0]][out[1]],this);
+        return new ResultWindow(displayString, outCommands[out[0]][out[1]],this);
     }//runOverwatchLogic
     private ResultWindow runKSPLogic() {
         return new ResultWindow(this);
