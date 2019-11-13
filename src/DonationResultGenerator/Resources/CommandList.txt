@@ -1,18 +1,19 @@
 3
-<Good_Commands> %13
+<Good_Commands> %14
     /effect give @s haste 60 2
-    /give @s coal_ore{display:{Name:"\"Common Donator Ore\"",Lore:["\"Pretty \\\"meh\\\" honestly.\""]}} 16
-    /give @s iron_ore{display:{Name:"\"Uncommon Donator Ore\"",Lore:["\"Okay, but farmable?\""]}} 8
-    /give @s gold_ore{display:{Name:"\"Uncommon Donator Ore\"",Lore:["\"Okay, but farmable?\""]}} 8
-    /give @s lapis_ore{display:{Name:"\"Rare Donator Ore\"",Lore:["\"Pretty good. Not gonna lie.\""]}} 4
-    /give @s redstone_ore{display:{Name:"\"Rare Donator Ore\"",Lore:["\"Pretty good. Not gonna lie.\""]}} 4
-    /give @s nether_quartz_ore{display:{Name:"\"Rare Donator Ore\"",Lore:["\"Pretty good. Not gonna lie.\""]}} 4
-    /give @s diamond_ore{display:{Name:"\"Mythic Donator Ore\"",Lore:["\"Ight. That's pretty legit.\""]}} 2
-    /give @s emerald_ore{display:{Name:"\"Mythic Donator Ore\"",Lore:["\"Ight. That's pretty legit.\""]}} 2
-    /give @s enchanted_book(StoredEnchantments:[{id:silk_touch,lvl:1}]} 1
-    /give @s enchanted_book(StoredEnchantments:[{id:unbreaking,lvl:3}]} 1
-    /give @s enchanted_book{StoredEnchantments:[{id:mending,lvl:1}]} 1
-    /give @s enchanted_book{StoredEnchantments:[{id:looting,lvl:5},{id:fortune,lvl:5}]} 1
+    /summon cow ~ ~ ~
+    /give @s chest{BlockEntityTag:{Items:[{Slot:13,id:coal_ore,Count:16,tag:{display:{Name:"\"Common Donator Ore\"",Lore:["\"Pretty \\\"meh\\\" honestly.\""]}}}]}} 1
+    /give @s chest{BlockEntityTag:{Items:[{Slot:13,id:iron_ore,Count:8,tag:{display:{Name:"\"Uncommon Donator Ore\"",Lore:["\"Okay, but farmable?\""]}}}]}} 1
+    /give @s chest{BlockEntityTag:{Items:[{Slot:13,id:gold_ore,Count:8,tag:{display:{Name:"\"Uncommon Donator Ore\"",Lore:["\"Okay, but farmable?\""]}}}]}} 1
+    /give @s chest{BlockEntityTag:{Items:[{Slot:13,id:lapis_ore,Count:4,tag:{display:{Name:"\"Rare Donator Ore\"",Lore:["\"Pretty good. Not gonna lie.\""]}}}]}} 1
+    /give @s chest{BlockEntityTag:{Items:[{Slot:13,id:redstone_ore,Count:4,tag:{display:{Name:"\"Rare Donator Ore\"",Lore:["\"Pretty good. Not gonna lie.\""]}}}]}} 1
+    /give @s chest{BlockEntityTag:{Items:[{Slot:13,id:nether_quartz_ore,Count:4,tag:{display:{Name:"\"Rare Donator Ore\"",Lore:["\"Pretty good. Not gonna lie.\""]}}}]}} 1
+    /give @s chest{BlockEntityTag:{Items:[{Slot:13,id:diamond_ore,Count:2,tag:{display:{Name:"\"Mythic Donator Ore\"",Lore:["\"Ight. That's pretty legit.\""]}}}]}} 1
+    /give @s chest{BlockEntityTag:{Items:[{Slot:13,id:emerald_ore,Count:2,tag:{display:{Name:"\"Mythic Donator Ore\"",Lore:["\"Ight. That's pretty legit.\""]}}}]}} 1
+    /give @s chest{BlockEntityTag:{Items:[{Slot:13,id:enchanted_book,Count:1,tag:{display:{Name:"\"Book of Unbreaking\""},StoredEnchantments:[{id:unbreaking,lvl:3}]}}]}} 1
+    /give @s chest{BlockEntityTag:{Items:[{Slot:13,id:enchanted_book,Count:1,tag:{display:{Name:"\"Book of Silk Touch\""},StoredEnchantments:[{id:silk_touch,lvl:1}]}}]}} 1
+    /give @s chest{BlockEntityTag:{Items:[{Slot:13,id:enchanted_book,Count:1,tag:{display:{Name:"\"Book of Mending\""},StoredEnchantments:[{id:mending,lvl:1}]}}]}} 1
+    /give @s chest{BlockEntityTag:{Items:[{Slot:13,id:enchanted_book,Count:1,tag:{display:{Name:"\"Book of Good Fortune\""},StoredEnchantments:[{id:looting,lvl:5},{id:fortune,lvl:3}]}}]}} 1
 <Bad_Commands> %10
     /give @s chest{BlockEntityTag:{Items:[{Slot:13,id:dead_bush,Count:64}]}} 1
     /effect give @s slowness 20 1 true
@@ -24,6 +25,8 @@
     /summon enderman ~ ~ ~ {Passengers:[{id:skeleton,HandItems:[{Count:1,id:bow,tag:{Enchantments:[{id:power,lvl:4}]}},{}],ArmorItems:[{},{},{},{Count:1,id:dragon_head}],CustomName:"\"Oh God Help.\"",HandDropChances:[0.1f,0.0f]}]}
     /kill @p
     /effect give @s bad_omen 60 0 true
-<Special_Commands> %2
+<Special_Commands> %4
     /give @s diamond_block 64
-    /give @s enchanted_book{StoredEnchantments:[{id:sharpness,lvl:10},{id:looting,lvl:10},{id:sweeping,lvl:10},{id:efficiency,lvl:10},{id:unbreaking,lvl:10},{id:fortune,lvl:10},{id:power,lvl:10},{id:mending,lvl:1}]} 1
+    /give @s diamond_sword{display:{Name:"\"The 10 Sword\"",Lore:["\"Someone spent some money for this.\""]},Enchantments:[{id:sharpness,lvl:10},{id:looting,lvl:10},{id:sweeping,lvl:10},{id:unbreaking,lvl:10},{id:mending,lvl:1}]} 1
+    /give @s diamond_pickaxe{display:{Name:"\"The 10 Pick\"",Lore:["\"Someone spent some money for this.\""]},Enchantments:[{id:effeciency,lvl:10},{id:fortune,lvl:10},{id:unbreaking,lvl:10},{id:mending,lvl:1}]} 1
+    /give @s bow{display:{Name:"\"The 10 Bow\"",Lore:["\"Someone spent some money for this.\""]},Enchantments:[{id:power,lvl:10},{id:punch,lvl:10},{id:looting,lvl:10},{id:unbreaking,lvl:10},{id:infinity,lvl:1},{id:mending,lvl:1}]} 1

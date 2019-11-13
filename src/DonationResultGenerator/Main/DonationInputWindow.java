@@ -109,7 +109,7 @@ public class DonationInputWindow extends JFrame implements ActionListener, KeyLi
             displayString="You're gonna have fun with this one.";
         } else if(dA==69) { //Special Case 2
             out[0]=2;
-            out[1]=1;
+            out[1]= random.nextInt(3)+1;
             displayString="Why would someone actually do this?";
         } else { //Default Logic
             int randInt = random.nextInt((int) Math.round(outFactor + 1));
