@@ -22,23 +22,23 @@ public class DonationInputWindow extends JFrame implements ActionListener, KeyLi
     private JPanel pane = new JPanel();
     private JPanel[] spacer = new JPanel[2];
     private JPanel[] containerPane = new JPanel[2];
-    private JTextField display=new JTextField("Donation Amount: "),
-            input=new JTextField();
+    private JLabel display=new JLabel("Donation Amount: ");
+    private JTextField input=new JTextField();
     private JButton b=new JButton("OK");
-    private GridLayout mainLay=new GridLayout(2,1,5,5),
-            cont0Lay=new GridLayout(1,2,5,5),
-            cont1Lay=new GridLayout(1,3,5,5);
+    private GridLayout mainLay=new GridLayout(2,1),
+            cont0Lay=new GridLayout(1,2),
+            cont1Lay=new GridLayout(1,3);
     private Font FONT= GlobalVariables.FONT;
     private Color B=GlobalVariables.B,
             G=GlobalVariables.G,
             P=GlobalVariables.P,
             W=GlobalVariables.W;
     private String gameString = "";
-    String[][] outCommands;
-    double dA;
-    double outFactor;
-    int[] out = {0, 0};
-    Random random = new Random();
+    private String[][] outCommands;
+    private double dA;
+    private double outFactor;
+    private int[] out = {0, 0};
+    private Random random = new Random();
 
     //Constructor
     public DonationInputWindow(String gameString) {
@@ -62,7 +62,6 @@ public class DonationInputWindow extends JFrame implements ActionListener, KeyLi
             containerPane[i].setBackground(B);
         }
         display.setFocusable(false);
-        display.setEditable(false);
         display.setFont(FONT);
         display.setBackground(B);
         display.setForeground(P);
